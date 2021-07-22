@@ -12,16 +12,21 @@ a {
   text-decoration: none;
 }
 
-a.visted {
+.details-link {
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+a:visted {
   color: brown;
 }
 
-a.hover {
+a:hover {
   color: lightcoral;
   cursor: pointer;
 }
 
-a.active {
+a:active {
   color: coral;
 }
 

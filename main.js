@@ -46,7 +46,7 @@ fetch("https://api.github.com/users/esparr")
       "<span class='text-fancy'>" +
       "GitHub URL  " +
       "</span>" +
-      '<a style="color: whitesmoke;" href="' +
+      '<a class="details-link" href="' +
       profile.html_url +
       '">' +
       profile.html_url +
@@ -67,7 +67,7 @@ fetch("https://api.github.com/users/esparr")
       "<span class='text-fancy'>" +
       "Twitter  " +
       "</span>" +
-      '<a style="color: whitesmoke;" href="https://twitter.com/' +
+      '<a class="details-link" href="https://twitter.com/' +
       profile.twitter_username +
       '">' +
       "@" +
