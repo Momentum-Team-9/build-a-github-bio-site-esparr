@@ -46,7 +46,11 @@ fetch("https://api.github.com/users/esparr")
       "<span class='text-fancy'>" +
       "GitHub URL  " +
       "</span>" +
-      profile.html_url;
+      '<a style="color: whitesmoke;" href="' +
+      profile.html_url +
+      '">' +
+      profile.html_url +
+      "</a>";
     basicsBox.appendChild(gitURL);
 
     // Add Company
@@ -63,8 +67,12 @@ fetch("https://api.github.com/users/esparr")
       "<span class='text-fancy'>" +
       "Twitter  " +
       "</span>" +
+      '<a style="color: whitesmoke;" href="https://twitter.com/' +
+      profile.twitter_username +
+      '">' +
       "@" +
-      profile.twitter_username;
+      profile.twitter_username +
+      "</a>";
     basicsBox.appendChild(twitter);
 
     // Create a div to hold vertical line
@@ -103,5 +111,57 @@ fetch("https://api.github.com/users/esparr")
     moreInfoBox.classList.add("moreinfo-box");
     outputDiv.appendChild(moreInfoBox);
 
-    // Create more stuff in here later!
+    const repoHeader = document.createElement("h2");
+    repoHeader.classList.add("repo-h2");
+    repoHeader.innerText = "A Few Projects";
+    moreInfoBox.appendChild(repoHeader);
+
+    // // Create more stuff in here later!
+    fetch(profile.repos_url)
+      // fetch: https://api.github.com/users/esparr/repos
+      .then((res) => res.json())
+      .then((repos) => {
+        console.log(repos[2]);
+        console.log(repos[3]);
+        console.log(repos[0]);
+
+        const repo1Box = document.createElement("div");
+        repo1Box.classList.add("repo-box");
+        moreInfoBox.appendChild(repo1Box);
+
+        const repo1 = document.createElement("p");
+        repo1.innerHTML =
+          '<a href="' +
+          repos[2].html_url +
+          '">' +
+          "Customer Directory Project" +
+          "</a>";
+        repo1Box.appendChild(repo1);
+
+        const repo2Box = document.createElement("div");
+        repo2Box.classList.add("repo-box");
+        moreInfoBox.appendChild(repo2Box);
+
+        const repo2 = document.createElement("p");
+        repo2.innerHTML =
+          '<a href="' +
+          repos[3].html_url +
+          '">' +
+          "Parking Validation Form Project" +
+          "</a>";
+        repo2Box.appendChild(repo2);
+
+        const repo3Box = document.createElement("div");
+        repo3Box.classList.add("repo-box");
+        moreInfoBox.appendChild(repo3Box);
+
+        const repo3 = document.createElement("p");
+        repo3.innerHTML =
+          '<a href="' +
+          repos[0].html_url +
+          '">' +
+          "This GitHub Bio Project" +
+          "</a>";
+        repo3Box.appendChild(repo3);
+      });
   });
